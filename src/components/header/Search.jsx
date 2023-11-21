@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-function Search({ inputValue, setInputValue, setSearch, wishList,onRemoveWishListItem  }) {
+function Search({ inputValue, setInputValue, setSearch, wishList, onRemoveWishListItem }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearch(inputValue);
     setInputValue('');
- 
+  };
+
+  const handleRemove = (index) => {
+    onRemoveWishListItem(index);
   };
 
   return (
@@ -61,6 +64,7 @@ function Search({ inputValue, setInputValue, setSearch, wishList,onRemoveWishLis
                     <img src={item.Poster} alt="" />
                     <h3>{item.Title}</h3>
                     <p>{item.Year}</p>
+                    <button className='delete' onClick={() => handleRemove(index)}>delete</button>
                   </li>
                 ))}
               </ul>
