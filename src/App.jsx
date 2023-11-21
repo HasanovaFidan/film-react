@@ -15,13 +15,25 @@ function App() {
     setWishList((prevWishList) => [...prevWishList, item]);
   };
 
+  const handleRemoveWishListItem = (index) => {
+    const updatedWishList = [...wishList];
+    updatedWishList.splice(index, 1);
+    setWishList(updatedWishList);
+  };
+
   useEffect(() => {
     localStorage.setItem('wishlist', JSON.stringify(wishList));
   }, [wishList]);
 
   return (
     <>
-      <Search setInputValue={setInputValue} inputValue={inputValue} setSearch={setSearch} wishList={wishList} />
+      <Search
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+        setSearch={setSearch}
+        wishList={wishList}
+        onRemoveWishListItem={handleRemoveWishListItem}
+      />
       <Data search={search} setWishListItem={handleSetWishListItem} />
       <Footer />
     </>
