@@ -19,6 +19,7 @@ function App() {
     const updatedWishList = [...wishList];
     updatedWishList.splice(index, 1);
     setWishList(updatedWishList);
+        toast.error("wislisten silindi")
   };
 
   useEffect(() => {
