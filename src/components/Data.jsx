@@ -21,8 +21,8 @@ function Data({ search, setWishListItem }) {
   }, [search]);
 
   const handleWishlist = (item) => {
-    
-    setWishListItem(item);
+        setWishListItem(item);
+    toast.success('Film wishlste elave olundu')
   };
 
   return (
